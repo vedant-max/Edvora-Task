@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Edvora Project</string>
+
+    <string name="example_rider_city">Chandigarh</string>
+    <string name="example_rider_state">Punjab</string>
+
+</resources>

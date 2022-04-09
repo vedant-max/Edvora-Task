@@ -1,6 +1,6 @@
-package com.example.edvoraproject.models.rides
+package com.example.edvoraproject.models.ride
 
-data class RidesResponse(
+data class Ride(
     val city: String,
     val date: String,
     val destination_station_code: Int,

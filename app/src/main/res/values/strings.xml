@@ -3,5 +3,7 @@
 
     <string name="example_rider_city">Chandigarh</string>
     <string name="example_rider_state">Punjab</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

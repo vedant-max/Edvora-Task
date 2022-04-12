@@ -96,6 +96,7 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ride_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -104,6 +105,7 @@
                     android:text="Ride id : 002"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/origin_station"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -113,6 +115,7 @@
                     android:text="Origin Station : 20"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/station_path"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -123,6 +126,7 @@
                     android:text="station_path : [20, 30, 40, 50, 60, 70, 80, 70, 80, 90, 100]"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -132,6 +136,7 @@
                     android:text="Date : 15th Feb, 2022 15:00"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/distance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"

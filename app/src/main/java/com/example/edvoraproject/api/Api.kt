@@ -8,8 +8,8 @@ import retrofit2.http.GET
 interface Api {
 
     @GET("rides")
-    suspend fun getRides(): Response<RideResponse>
+    suspend fun getRides(): Response<RideResponse>?
 
     @GET("user")
-    suspend fun getUsers(): Response<User>
+    suspend fun getUser(): Response<User>?
 }

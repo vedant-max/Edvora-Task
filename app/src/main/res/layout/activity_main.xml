@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/app_bar_const"
@@ -19,14 +19,14 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/inter_medium"
             android:text="Edvora"
             android:textColor="@color/white"
-            android:fontFamily="@font/inter_medium"
             android:textSize="32sp"
-            android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/user_image_card"
@@ -39,6 +39,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/userDp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"/>
@@ -46,6 +47,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -65,16 +67,162 @@
         android:id="@+id/temp_top_bar"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/app_bar_const"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="62dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingEnd="8dp"
+                    android:text="Rides: "
+                    android:textColor="#ABABAB" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/nearest"
+                    android:layout_width="91dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:text="Nearest"
+                    android:textColor="@color/not_selected_text_color" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/upcoming"
+                    android:layout_width="83dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Upcoming"
+                    android:textColor="@color/not_selected_text_color" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/past"
+                    android:layout_width="53dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Past"
+                    android:textColor="@color/not_selected_text_color" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="38dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_filter_foreground"
+                        app:layout_constraintEnd_toStartOf="@id/filter"
+                        app:layout_constraintTop_toTopOf="@id/filter"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        app:layout_constraintStart_toStartOf="@id/img"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/filter"
+                        android:layout_width="74dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingTop="18dp"
+                        android:paddingBottom="16dp"
+                        android:text="Filter"
+                        android:textColor="@color/not_selected_text_color"
+                        tools:layout_editor_absoluteX="48dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/mainFrame"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/temp_top_bar"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardFilter"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:visibility="invisible"
+        app:cardBackgroundColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@id/mainFrame"
+        app:layout_constraintEnd_toEndOf="@id/mainFrame"
+        app:layout_constraintTop_toTopOf="@id/mainFrame"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#232323"
+                app:boxStrokeColor="@color/app_background">
+
+                <AutoCompleteTextView
+                    android:id="@+id/stateFilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/app_bar_color"
+                    android:inputType="none"
+                    android:text="State"
+                    android:textColor="@color/not_selected_text_color" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#232323"
+                app:boxStrokeColor="@color/app_background">
+
+                <AutoCompleteTextView
+                    android:id="@+id/city_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/app_bar_color"
+                    android:inputType="none"
+                    android:text="City"
+                    android:textColor="@color/not_selected_text_color" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/temp_top_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

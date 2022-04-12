@@ -8,5 +8,5 @@ data class Ride(
     val map_url: String,
     val origin_station_code: Int,
     val state: String,
-    val station_path: List<Int>
+    var station_path: List<Int>
 )

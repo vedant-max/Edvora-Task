@@ -75,8 +75,8 @@ class MainActivity : AppCompatActivity() {
                     viewModel.nearestRides.postValue(viewModel.sortWithDistance(response.data!!))
                     cities= viewModel.getAllCities(response.data)
                     states= viewModel.getAllStates(response.data)
-                    cities += listOf("None")
-                    states += listOf("None")
+                    cities = listOf("None")+cities
+                    states = listOf("None")+states
                     val citiesAdapter = ArrayAdapter(this,R.layout.dropdown_item,cities)
                     val statesAdapter = ArrayAdapter(this,R.layout.dropdown_item,states)
                     binding.stateFilter.setAdapter(statesAdapter)
